@@ -21,24 +21,6 @@ class CounterController extends Stimulus.Controller {
     this.countValue++;
   }
 
-  updateCount(event) {
-    const value = event.target.value;
-    this.countValue = parseInt(value, 10);
-  }
-
-  toggleLogging() {
-    this.logValue = !this.logValue;
-  }
-
-  notify() {
-    if (this.logValue) {
-      console.log("Counter updated", this.countValue);
-    }
-
-    const event = new CustomEvent("counter-updated", { count: this.countValue });
-    window.dispatchEvent(event);
-  }
-
   updateOutput() {
     // update the text
     this.outputTarget.innerText = this.countValue;
@@ -53,12 +35,9 @@ class CounterController extends Stimulus.Controller {
       elementClasses.remove(...this.errorClasses);
       elementClasses.add(...this.validClasses);
     }
-
-    this.inputTarget.value = this.countValue;
   }
 
   countValueChanged() {
-    this.notify();
     this.updateOutput();
   }
 }
