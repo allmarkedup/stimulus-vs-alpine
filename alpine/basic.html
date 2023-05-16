@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="./counter_basic.js" defer></script>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+
+    <style>
+      .error * {
+        color: red;
+      }
+
+      .valid * {
+        color: green;
+      }
+    </style>
+
+    <title>Alpine Basic</title>
+  </head>
+  <body>
+    <div x-data="counter(0, 3)" :class="isError ? 'error' : 'valid'">
+      <span>You've clicked <span x-text="count">0</span> times</span>
+
+      <button @click="count++">Add One</button>
+    </div>
+  </body>
+</html>

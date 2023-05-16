@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://unpkg.com/stimulus@3.2.1/dist/stimulus.umd.js" defer></script>
+    <script src="./counter_basic.js" defer></script>
+
+    <style>
+      .error * {
+        color: red;
+      }
+
+      .valid * {
+        color: green;
+      }
+    </style>
+
+    <title>Stimulus Basic</title>
+  </head>
+  <body>
+    <div
+      data-controller="counter"
+      data-counter-count-value="0"
+      data-counter-max-value="3"
+      data-counter-error-class="error"
+      data-counter-valid-class="valid"
+    >
+      <span>You've clicked <span data-counter-target="output">0</span> times</span>
+
+      <button data-action="click->counter#addOne">Add One</button>
+    </div>
+  </body>
+</html>
